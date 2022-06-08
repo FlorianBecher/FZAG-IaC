@@ -34,6 +34,11 @@ resource "azurerm_app_service_plan" "appserviceplan" {
     tier = "Free"
     size = "F1"
   }
+  tags = {
+    environement = "dev"
+    source       = "Terraform"
+    owner        = "Florian"
+  }
 }
 resource "azurerm_app_service" "webapp" {
   name                = "FZAG-IaC-FBE-WebApp"
@@ -45,5 +50,10 @@ resource "azurerm_app_service" "webapp" {
     branch             = "master"
     manual_integration = true
     use_mercurial      = false
+  }
+  tags = {
+    environement = "dev"
+    source       = "Terraform"
+    owner        = "Florian"
   }
 }
